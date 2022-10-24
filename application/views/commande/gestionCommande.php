@@ -20,22 +20,23 @@
                 <table id="list-commande" class="table-striped table-hover" style="width:100%">
                     <thead>
                         <tr>
-                            <th>Commande N°</th>
+                            <th class="number">Commande N°</th>
                             <th>Site</th>
                             <th>Nom</th>
                             <th>Prénom</th>
-                            <th>Matricule</th>
-                            <th class="number">Nb articles</th>
-                            <th class="number">Montant</th>
-                            <th class="number">A payer mensuel</th>
+                            <th>Username</th>
+                           
                             <th class="number">Article</th>
                             <th class="number">Prix</th>
                             <th class="number">Qte</th>
                             <th class="number">Unité ref</th>
-                            <th class="number">Total</th>
+                            <th class="number">Total Article</th>
                             <th class="number">Catégorie</th>
+                            <th class="number">Nb articles</th>
+                            <th class="number">Total Achat</th> 
+                            <th class="number">A payer mensuel</th>
                             <th class="number">Fournisseur</th>
-                            <th class="number">Etat de la commande</th>
+                            <th class="number notexport">Etat de la commande</th>
                         </tr>
                     </thead>
                     
@@ -52,6 +53,17 @@
     $(document).ready(function(){
         
         var myTable = $("#list-commande").DataTable({
+
+             dom: 'Blfrtip',
+            buttons: [
+                {
+                    extend : 'excelHtml5',
+                    exportOptions : {
+                        orthogonal : 'export'
+                    }
+                },
+                
+            ],
             language : {
                 url : "<?= base_url("assets/datatables/fr-FR.json"); ?>"
             },
@@ -62,16 +74,8 @@
                 { data : "site_libelle" },
                 { data : "usr_nom" },
                 { data : "usr_prenom" },
-                { data : "usr_matricule" },
-                { data : "panier_nbarticle" },
-                { 
-                    data : "panier_montant",
-                    render: $.fn.dataTable.render.number( ' ', ',', 2, '', ' Ar' )
-                },
-                { 
-                    data : "panier_montantmensuel",
-                    render: $.fn.dataTable.render.number( ' ', ',', 2, '', ' Ar' )
-                },
+                { data : "usr_username" },
+                
                 { data : "article_nom" },
                 {
                     data : "panierdetails_prix",
@@ -84,6 +88,15 @@
                     render : $.fn.dataTable.render.number( ' ', ',', 2, '', ' Ar' )
                 },
                 { data : "categorie_nom" },
+                { data : "panier_nbarticle" },
+                { 
+                    data : "panier_montant",
+                    render: $.fn.dataTable.render.number( ' ', ',', 2, '', ' Ar' )
+                },
+                { 
+                    data : "panier_montantmensuel",
+                    render: $.fn.dataTable.render.number( ' ', ',', 2, '', ' Ar' )
+                },
                 { data : "fournisseur_nom" },
                 { data : "statuscommande_libelle" }
             ]

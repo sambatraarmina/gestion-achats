@@ -37,7 +37,7 @@ class MY_Controller extends CI_Controller {
         
         $topInfos = [
             'panier' => $panierInfos,
-            'username' => $this->_userInfos['prenom'],
+            'username' => $this->_userInfos['username'],
             'isGestionAchat' => $this->_userInfos['isGestionAchat'] 
         ];
 

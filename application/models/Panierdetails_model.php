@@ -135,7 +135,7 @@ class Panierdetails_model extends CI_Model {
                 ->select('panier_id, panier_status, panier_montant, panier_montantmensuel, panier_nbarticle')
                 ->select('article_id, article_nom')
                 ->select('statuscommande_libelle')
-                ->select('usr_nom, usr_prenom, usr_matricule, usr_site')
+                ->select('usr_nom, usr_prenom, usr_matricule, usr_site, usr_username')
                 ->select('site_id, site_libelle')
                 ->select('unitereference_nom')
                 ->select('fournisseur_nom, fournisseur_contact, fournisseur_adresse')

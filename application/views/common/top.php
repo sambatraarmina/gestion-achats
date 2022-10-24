@@ -29,8 +29,6 @@
                 <?php endif; ?>
                 <a href="<?= site_url('auth/doLogout') ?>" type="button" class="btn btn-sm btn-dark"><i class="fa fa-user pr-2"></i> Déconnexion  </a>
 
-                <!-- 
-                <button type="button" id="btn-loggout" class="btn btn-sm btn-danger"><i class="fa fa-sign-out pr-2"></i>Déconnecter</button> -->
             </div>
 
         </div>
